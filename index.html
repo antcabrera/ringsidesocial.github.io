@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ring Side Social — Social Media Marketing for Small Businesses</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #cc1f1f;
+    --red-dark: #a01818;
+    --red-light: #f5e8e8;
+    --black: #111111;
+    --near-black: #1a1a1a;
+    --white: #ffffff;
+    --off-white: #f8f7f5;
+    --gray-light: #f0efed;
+    --gray-mid: #d0ceca;
+    --gray-text: #666662;
+    --border: rgba(0,0,0,0.08);
+    --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─────────────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2.5rem;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-mark {
+    width: 28px;
+    height: 28px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-logo-mark svg {
+    width: 14px;
+    height: 14px;
+    fill: white;
+  }
+
+  .nav-logo-text {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--black);
+  }
+
+  .nav-logo-text span { color: var(--red); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--black); }
+
+  .nav-cta {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white) !important;
+    background: var(--red);
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--red-dark); }
+
+  /* ─── HERO ─────────────────────────────────────────────── */
+  #hero {
+    padding: 10rem 2.5rem 6rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--red);
+  }
+
+  .hero-headline {
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-headline span {
+    color: var(--red);
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--gray-text);
+    line-height: 1.8;
+    margin-bottom: 2.25rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--red);
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--red-dark); }
+
+  .btn-ghost {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    border: 1.5px solid var(--black);
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .btn-ghost:hover { opacity: 0.6; }
+
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    padding-top: 2rem;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .stat-item {}
+
+  .stat-number {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: -0.02em;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+  }
+
+  .hero-visual {
+    position: relative;
+  }
+
+  .hero-card {
+    background: var(--black);
+    border-radius: 8px;
+    padding: 2rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 140px;
+    height: 140px;
+    background: var(--red);
+    border-radius: 50%;
+    opacity: 0.15;
+  }
+
+  .hero-card-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-card-metric {
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: white;
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-card-sub {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 2rem;
+  }
+
+  .hero-card-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-card-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+  }
+
+  .hero-card-bar-fill {
+    height: 100%;
+    background: var(--red);
+    border-radius: 2px;
+  }
+
+  .hero-card-platforms {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid rgba(255,255,255,0.08);
+    flex-wrap: wrap;
+  }
+
+  .platform-pill {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    border: 0.5px solid rgba(255,255,255,0.12);
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+  }
+
+  /* ─── DIVIDER ───────────────────────────────────────────── */
+  .divider {
+    border: none;
+    border-top: 0.5px solid var(--border);
+    margin: 0 2.5rem;
+  }
+
+  /* ─── SECTION BASE ──────────────────────────────────────── */
+  .section {
+    padding: 6rem 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 2px;
+    background: var(--red);
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-body {
+    font-size: 1rem;
+    color: var(--gray-text);
+    max-width: 540px;
+    line-height: 1.8;
+  }
+
+  /* ─── PROBLEM ───────────────────────────────────────────── */
+  #problem {
+    background: var(--off-white);
+  }
+
+  .problem-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .pain-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin-top: 2rem;
+  }
+
+  .pain-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: white;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .pain-item:hover { border-left-color: var(--red); }
+
+  .pain-x {
+    font-size: 1rem;
+    color: var(--red);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .pain-text {
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    line-height: 1.6;
+  }
+
+  .pain-text strong {
+    color: var(--black);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .solution-box {
+    background: var(--black);
+    border-radius: 8px;
+    padding: 2.5rem;
+    color: white;
+  }
+
+  .solution-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .solution-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  .solution-body {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .solution-checks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .solution-check {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .check-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ─── SERVICES ──────────────────────────────────────────── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    padding: 2rem 1.75rem;
+    transition: background 0.2s;
+    position: relative;
+  }
+
+  .service-card:hover { background: var(--off-white); }
+
+  .service-tag {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    background: var(--red-light);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .service-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+    color: var(--gray-text);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .service-includes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .service-includes span {
+    font-size: 0.78rem;
+    color: var(--gray-text);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .service-includes span::before {
+    content: '→';
+    color: var(--red);
+    font-size: 0.7rem;
+  }
+
+  /* ─── PROCESS ───────────────────────────────────────────── */
+  #process { background: var(--black); }
+
+  .process-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 2.5rem;
+  }
+
+  .process-inner .section-label { color: var(--red); }
+  .process-inner .section-label::before { background: var(--red); }
+  .process-inner .section-title { color: white; }
+  .process-inner .section-body { color: rgba(255,255,255,0.45); }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 3.5rem;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    left: calc(16.67% + 1rem);
+    right: calc(16.67% + 1rem);
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .process-step {
+    padding: 0 2rem 0 0;
+  }
+
+  .step-num {
+    width: 36px;
+    height: 36px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.6rem;
+  }
+
+  .step-desc {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+  }
+
+  /* ─── PRICING ───────────────────────────────────────────── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .pricing-card {
+    border: 0.5px solid var(--border);
+    border-radius: 6px;
+    padding: 2rem;
+    background: var(--white);
+    position: relative;
+  }
+
+  .pricing-card.featured {
+    border: 2px solid var(--red);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--red);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .pricing-tier {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .pricing-price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    margin-bottom: 0.2rem;
+  }
+
+  .pricing-price span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--gray-text);
+    letter-spacing: 0;
+  }
+
+  .pricing-desc {
+    font-size: 0.85rem;
+    color: var(--gray-text);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 0.5px solid var(--border);
+    line-height: 1.6;
+  }
+
+  .pricing-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .pricing-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--gray-text);
+  }
+
+  .pricing-feature::before {
+    content: '✓';
+    color: var(--red);
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    margin-top: 1px;
+  }
+
+  .pricing-cta {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.85rem;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .pricing-cta-ghost {
+    color: var(--black);
+    border: 1.5px solid var(--black);
+  }
+
+  .pricing-cta-ghost:hover { background: var(--black); color: white; }
+
+  .pricing-cta-red {
+    color: white;
+    background: var(--red);
+  }
+
+  .pricing-cta-red:hover { background: var(--red-dark); }
+
+  /* ─── SOCIAL PROOF ──────────────────────────────────────── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .testimonial-card {
+    padding: 1.75rem;
+    border: 0.5px solid var(--border);
+    border-radius: 6px;
+    background: var(--white);
+  }
+
+  .stars {
+    color: var(--red);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .testimonial-quote {
+    font-size: 0.9rem;
+    color: var(--black);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+
+  .testimonial-meta {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    font-weight: 600;
+  }
+
+  /* ─── CTA ───────────────────────────────────────────────── */
+  #cta { background: var(--red); }
+
+  .cta-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .cta-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+  }
+
+  .btn-white {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--red);
+    background: white;
+    padding: 1rem 2.25rem;
+    border-radius: 2px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+
+  .btn-white:hover { opacity: 0.9; }
+
+  /* ─── FOOTER ────────────────────────────────────────────── */
+  footer {
+    background: var(--black);
+    padding: 3rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-brand {
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.01em;
+  }
+
+  .footer-brand span { color: var(--red); }
+
+  .footer-contact {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-contact a {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-contact a:hover { color: white; }
+
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    width: 100%;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid rgba(255,255,255,0.06);
+  }
+
+  /* ─── RESPONSIVE ────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; padding: 8rem 1.25rem 4rem; gap: 3rem; }
+    .hero-visual { display: none; }
+    .problem-inner { grid-template-columns: 1fr; padding: 4rem 1.25rem; gap: 2.5rem; }
+    .section { padding: 4rem 1.25rem; }
+    .process-inner { padding: 4rem 1.25rem; }
+    .process-steps { grid-template-columns: 1fr; }
+    .process-steps::before { display: none; }
+    .process-step { padding: 0; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .cta-inner { grid-template-columns: 1fr; padding: 4rem 1.25rem; gap: 2rem; }
+    footer { padding: 2rem 1.25rem; flex-direction: column; align-items: flex-start; }
+    .divider { margin: 0 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ──────────────────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6"/></svg>
+    </div>
+    <span class="nav-logo-text">Ring Side <span>Social</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:5624509880" class="nav-cta">Get Started</a>
+</nav>
+
+<!-- ─── HERO ──────────────────────────────────────────────── -->
+<section id="hero">
+  <div>
+    <p class="hero-eyebrow">Social Media Marketing</p>
+    <h1 class="hero-headline">
+      Stop posting.<br>
+      <span>Start growing.</span>
+    </h1>
+    <p class="hero-sub">
+      Ring Side Social is the all-in-one social media partner for small businesses.
+      We plan it, create it, and publish it — while you focus on running your business.
+    </p>
+    <div class="hero-actions">
+      <a href="tel:5624509880" class="btn-primary">Call Us Now</a>
+      <a href="mailto:ringsidesocials@gmail.com" class="btn-ghost">Get a Free Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <p class="stat-number">100%</p>
+        <p class="stat-label">Done for you</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-number">Direct</p>
+        <p class="stat-label">Access to your team</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-number">Local</p>
+        <p class="stat-label">Business focused</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card">
+      <p class="hero-card-label">Your account this month</p>
+      <p class="hero-card-metric">+284%</p>
+      <p class="hero-card-sub">Reach growth vs. last month</p>
+
+      <div>
+        <div class="hero-card-bar-label"><span>Instagram</span><span>+312%</span></div>
+        <div class="hero-card-bar"><div class="hero-card-bar-fill" style="width:88%"></div></div>
+
+        <div class="hero-card-bar-label"><span>TikTok</span><span>+256%</span></div>
+        <div class="hero-card-bar"><div class="hero-card-bar-fill" style="width:72%"></div></div>
+
+        <div class="hero-card-bar-label"><span>Facebook</span><span>+198%</span></div>
+        <div class="hero-card-bar"><div class="hero-card-bar-fill" style="width:55%"></div></div>
+      </div>
+
+      <div class="hero-card-platforms">
+        <span class="platform-pill">Instagram</span>
+        <span class="platform-pill">TikTok</span>
+        <span class="platform-pill">Facebook</span>
+        <span class="platform-pill">YouTube</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ─── PROBLEM ───────────────────────────────────────────── -->
+<div id="problem">
+  <div class="problem-inner">
+    <div>
+      <p class="section-label">The Problem</p>
+      <h2 class="section-title">Social media is a full-time job. You already have one.</h2>
+      <p class="section-body">Most small businesses know they need to be online — they just don't have the time, tools, or team to do it consistently.</p>
+
+      <div class="pain-list">
+        <div class="pain-item">
+          <span class="pain-x">✕</span>
+          <div class="pain-text">
+            <strong>Posting is inconsistent</strong>
+            You post when you have time, which means you go quiet for weeks.
+          </div>
+        </div>
+        <div class="pain-item">
+          <span class="pain-x">✕</span>
+          <div class="pain-text">
+            <strong>Content doesn't convert</strong>
+            Likes don't pay bills. Your content isn't driving real customers.
+          </div>
+        </div>
+        <div class="pain-item">
+          <span class="pain-x">✕</span>
+          <div class="pain-text">
+            <strong>Big agencies ignore you</strong>
+            You're not their priority. You get a junior rep and a cookie-cutter strategy.
+          </div>
+        </div>
+        <div class="pain-item">
+          <span class="pain-x">✕</span>
+          <div class="pain-text">
+            <strong>It's overwhelming</strong>
+            Reels, TikToks, stories, ads — where do you even start?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="solution-box">
+      <p class="solution-label">The Ring Side Difference</p>
+      <h3 class="solution-title">You work directly with the people doing the work.</h3>
+      <p class="solution-body">No account managers. No handoffs. No runaround. You get a dedicated team that treats your business like a partner, not a number.</p>
+      <div class="solution-checks">
+        <div class="solution-check"><span class="check-dot"></span> Strategy built around your specific goals</div>
+        <div class="solution-check"><span class="check-dot"></span> Professional short-form video content</div>
+        <div class="solution-check"><span class="check-dot"></span> Consistent posting schedule, every week</div>
+        <div class="solution-check"><span class="check-dot"></span> Targeted paid ads that actually convert</div>
+        <div class="solution-check"><span class="check-dot"></span> Simple reporting you can actually understand</div>
+        <div class="solution-check"><span class="check-dot"></span> Direct line to your team, always</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── SERVICES ──────────────────────────────────────────── -->
+<div class="section" id="services">
+  <p class="section-label">Services</p>
+  <h2 class="section-title">Everything your brand needs online</h2>
+  <p class="section-body">One partner. Every platform. No gaps.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-tag">Content</span>
+      <p class="service-name">Short-Form Video Production</p>
+      <p class="service-desc">Professional Reels, TikToks, and YouTube Shorts — scripted, shot, and edited for your brand.</p>
+      <div class="service-includes">
+        <span>Scripting & storyboarding</span>
+        <span>Professional shoot</span>
+        <span>Edit, captions & music</span>
+        <span>Platform-optimized formats</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <span class="service-tag">Management</span>
+      <p class="service-name">Social Media Management</p>
+      <p class="service-desc">We run your accounts end-to-end — content calendar, posting, community management, and growth.</p>
+      <div class="service-includes">
+        <span>Content calendar planning</span>
+        <span>Daily/weekly posting</span>
+        <span>Comment & DM management</span>
+        <span>Monthly performance review</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <span class="service-tag">Strategy</span>
+      <p class="service-name">Content Strategy</p>
+      <p class="service-desc">A custom roadmap for your brand — who you're talking to, what you're saying, and how you show up consistently.</p>
+      <div class="service-includes">
+        <span>Audience & competitor research</span>
+        <span>Brand voice development</span>
+        <span>Content pillars & themes</span>
+        <span>Platform-specific strategy</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <span class="service-tag">Paid Ads</span>
+      <p class="service-name">Targeted Advertising</p>
+      <p class="service-desc">Meta and TikTok ads that reach real customers in your area — not just impressions, but results.</p>
+      <div class="service-includes">
+        <span>Ad creative & copywriting</span>
+        <span>Audience targeting setup</span>
+        <span>Budget management</span>
+        <span>Performance reporting</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <span class="service-tag">Creative</span>
+      <p class="service-name">Graphics & Visual Content</p>
+      <p class="service-desc">Branded graphics, story templates, and static posts that look professional and on-brand every time.</p>
+      <div class="service-includes">
+        <span>Custom branded templates</span>
+        <span>Story & highlight covers</span>
+        <span>Promotional graphics</span>
+        <span>Brand consistency review</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <span class="service-tag">Growth</span>
+      <p class="service-name">Account Growth & Analytics</p>
+      <p class="service-desc">Data-driven growth tactics and plain-English reporting so you always know what's working.</p>
+      <div class="service-includes">
+        <span>Follower growth strategy</span>
+        <span>Hashtag & SEO optimization</span>
+        <span>Monthly analytics reports</span>
+        <span>Strategy adjustments</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ─── PROCESS ───────────────────────────────────────────── -->
+<div id="process">
+  <div class="process-inner">
+    <p class="section-label">How It Works</p>
+    <h2 class="section-title">Simple from day one.</h2>
+    <p class="section-body">We keep the process lean so you're not doing extra work. Three steps and we're running.</p>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <p class="step-name">We Talk</p>
+        <p class="step-desc">Tell us about your business, your goals, and who your customers are. We'll build a strategy around that — not a template.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <p class="step-name">We Build</p>
+        <p class="step-desc">We create your content, set up your calendar, and get everything approved before anything goes live. You're always in the loop.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <p class="step-name">We Grow</p>
+        <p class="step-desc">We publish, monitor, and optimize every week. You get regular updates and direct access to your team whenever you need it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── PRICING ───────────────────────────────────────────── -->
+<div class="section" id="pricing">
+  <p class="section-label">Pricing</p>
+  <h2 class="section-title">Straightforward packages. No surprises.</h2>
+  <p class="section-body">Pick the plan that fits where you are. All plans include direct access to your team.</p>
+
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <p class="pricing-tier">Starter</p>
+      <p class="pricing-price">Custom <span>/ mo</span></p>
+      <p class="pricing-desc">For businesses just getting started with social media who need a consistent presence.</p>
+      <div class="pricing-features">
+        <div class="pricing-feature">Social media management (2 platforms)</div>
+        <div class="pricing-feature">8 posts per month</div>
+        <div class="pricing-feature">Basic content strategy</div>
+        <div class="pricing-feature">Monthly performance report</div>
+        <div class="pricing-feature">Direct team access</div>
+      </div>
+      <a href="mailto:ringsidesocials@gmail.com" class="pricing-cta pricing-cta-ghost">Get a Quote</a>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="featured-badge">Most Popular</div>
+      <p class="pricing-tier">Growth</p>
+      <p class="pricing-price">Custom <span>/ mo</span></p>
+      <p class="pricing-desc">For businesses ready to grow — more content, more platforms, and short-form video included.</p>
+      <div class="pricing-features">
+        <div class="pricing-feature">Social media management (3 platforms)</div>
+        <div class="pricing-feature">16 posts per month</div>
+        <div class="pricing-feature">Short-form video (4/mo)</div>
+        <div class="pricing-feature">Full content strategy</div>
+        <div class="pricing-feature">Paid ad management</div>
+        <div class="pricing-feature">Bi-weekly check-ins</div>
+      </div>
+      <a href="tel:5624509880" class="pricing-cta pricing-cta-red">Call to Start</a>
+    </div>
+
+    <div class="pricing-card">
+      <p class="pricing-tier">Full Package</p>
+      <p class="pricing-price">Custom <span>/ mo</span></p>
+      <p class="pricing-desc">Everything. All platforms, maximum content volume, full ad management, and priority support.</p>
+      <div class="pricing-features">
+        <div class="pricing-feature">All platforms managed</div>
+        <div class="pricing-feature">Unlimited posts</div>
+        <div class="pricing-feature">Short-form video (8+/mo)</div>
+        <div class="pricing-feature">Full ad campaign management</div>
+        <div class="pricing-feature">Custom graphics & branding</div>
+        <div class="pricing-feature">Weekly strategy calls</div>
+        <div class="pricing-feature">Priority response time</div>
+      </div>
+      <a href="mailto:ringsidesocials@gmail.com" class="pricing-cta pricing-cta-ghost">Get a Quote</a>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ─── TESTIMONIALS ──────────────────────────────────────── -->
+<div class="section">
+  <p class="section-label">What Clients Say</p>
+  <h2 class="section-title">Real results for real businesses.</h2>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-quote">"Ring Side Social transformed how we show up online. We went from posting once a month to having a real presence. Our inquiries have gone up noticeably."</p>
+      <p class="testimonial-meta">Local Business Client</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-quote">"What I love most is that I'm talking to the actual people doing the work. No middleman, no runaround. They treat my business like their own."</p>
+      <p class="testimonial-meta">Small Business Owner</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-quote">"I was skeptical at first but the results speak for themselves. Consistent content, real engagement, and I don't have to think about it."</p>
+      <p class="testimonial-meta">Restaurant Owner</p>
+    </div>
+  </div>
+</div>
+
+<!-- ─── CTA ───────────────────────────────────────────────── -->
+<div id="cta">
+  <div class="cta-inner">
+    <div>
+      <h2 class="cta-title">Ready to stop guessing and start growing?</h2>
+      <p class="cta-sub">Give us a call or shoot us an email. We'll tell you exactly what we'd do for your business — no pressure, no pitch.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.75rem;flex-shrink:0;">
+      <a href="tel:5624509880" class="btn-white">Call (562) 450-9880</a>
+      <a href="https://instagram.com/ringsidesocials" target="_blank" style="text-align:center;font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;">@ringsidesocials</a>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FOOTER ────────────────────────────────────────────── -->
+<footer>
+  <p class="footer-brand">Ring Side <span>Social</span></p>
+  <div class="footer-contact">
+    <a href="tel:5624509880">(562) 450-9880</a>
+    <a href="mailto:ringsidesocials@gmail.com">Email Us</a>
+    <a href="https://instagram.com/ringsidesocials" target="_blank">Instagram</a>
+  </div>
+  <p class="footer-copy">© 2026 Ring Side Social. Social Media Marketing for Small Businesses.</p>
+</footer>
+
+</body>
+</html>
